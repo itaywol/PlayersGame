@@ -1,0 +1,6 @@
+[submodule "backend"]
+	path = backend
+	url = git@github.com:itaywol/PlayersBackend.git
+[submodule "frontend"]
+	path = frontend
+	url = git@github.com:itaywol/PlayersFrontend.git

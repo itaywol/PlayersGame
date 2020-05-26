@@ -1,0 +1,32 @@
+version: "3.7"
+
+services: 
+  frontend:
+    container_name: "${PROJECT_NAME}_frontend"
+    build:
+      context: ./frontend
+      target: $NODE_ENV
+    ports:
+      - $FRONTEND_PORT:$FRONTEND_PORT
+    environment:
+      NODE_ENV: $NODE_ENV
+      PORT: $FRONTEND_PORT
+    volumes:
+      - "/usr/src/app/node_modules"
+      - "./frontend:/usr/src/app"
+  backend:
+    container_name: "${PROJECT_NAME}_backend"
+    build:
+      context: ./backend
+      target: $NODE_ENV
+    ports: 
+      - "${BACKEND_PORT}:${BACKEND_PORT}"
+      - "${BACKEND_DEBUG_PORT}:${BACKEND_DEBUG_PORT}"
+    environment: 
+      NODE_ENV: $NODE_ENV
+      PORT: $BACKEND_PORT
+      DEBUG_PORT: $BACKEND_DEBUG_PORT
+    volumes:
+      - "./backend:/usr/src/app"
+      - "/usr/src/app/node_modules"
+
