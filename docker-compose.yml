@@ -14,6 +14,7 @@ services:
     volumes:
       - "/usr/src/app/node_modules"
       - "./frontend:/usr/src/app"
+
   backend:
     container_name: "${PROJECT_NAME}_backend"
     build:
