@@ -5,9 +5,10 @@ services:
     container_name: "${PROJECT_NAME}_frontend"
     build:
       context: ./frontend
-      target: $NODE_ENV
+      target: testing
     ports:
       - $FRONTEND_PORT:$FRONTEND_PORT
+      - $FRONTEND_TESTING:$FRONTEND_TESTING
     environment:
       NODE_ENV: $NODE_ENV
       PORT: $FRONTEND_PORT
